@@ -1,0 +1,47 @@
+{
+  "name": "SistemadeInventario",
+  "version": "1.0.0",
+  "description": "Sistema de Inventario",
+  "author": "noe santoscoy",
+  "main": "js/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "electron": "^39.2.4",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.tuapp.inventario",
+    "productName": "Sistema de Inventario",
+    "npmRebuild": false,
+    "buildDependenciesFromSource": false,
+    "nodeGypRebuild": false,
+    "files": [
+      "main.js",
+      "*.html",
+      "js/**/*",
+      "img/**/*",
+      "css/**/*",
+      "node_modules/bcryptjs/**/*",
+      "node_modules/sqlite3/**/*"
+    ],
+    "asarUnpack": [
+      "node_modules/sqlite3/**/*",
+      "js/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "sign": null
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

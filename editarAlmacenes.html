@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Almacenes</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <script src="js/script.js"></script>
+</head>
+<body onload="cargarEditarAlmacenes()">
+<button id="regresarTablas" onclick="volver()">&#8678;</button>
+<div class="container">
+  <div>
+
+    <form class="" id="formAlmacenes">
+      <h1>Editar / Agregar Almacenes</h1>
+      <p>ID del Almacen</p>
+      <input type="number" id="modID" class="login" placeholder="ID" min="1">
+      <p>Nombre</p>
+      <input type="text" id="modNombre" class="login" placeholder="Nombre del Almacen">
+    </form>
+    <br>
+    <button class="loginbutton" onclick="aggEditAlmacen()"><b>Enviar</b></button>
+    <button class="loginbutton" onclick="limpiarCamposAlmacenes()"><b>Limpiar Campos</b></button>
+  </div>
+</div>
+</body>
+</html>

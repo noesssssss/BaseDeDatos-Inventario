@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Productos</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <script src="js/script.js"></script>
+</head>
+<body onload="cargarEditarProductos()">
+<button id="regresarTablas" onclick="volver()">&#8678;</button>
+<div class="container">
+  <div>
+    <form id="formProductos">
+      <h1>Editar / Agregar Producto</h1>
+      <p>ID del Producto</p>
+      <input type="number" id="modID" class="login" placeholder="ID" min="1">
+      <p>Nombre</p>
+      <input type="text" id="modNombre" class="login" placeholder="Nombre del Producto">
+      <p>Precio</p>
+      <input type="number" id="modPrecio" class="login" placeholder="Precio" min="1" step="0.01">
+      <p>Cantidad</p>
+      <input type="number" id="modCantidad" class="login" placeholder="Cantidad" min="0">
+      <p>Departamento</p>
+      <input type="text" id="modDepartamento" class="login" placeholder="Departamento">
+      <p>Almacen (ID)</p>
+      <input type="number" id="modAlmacen" class="login" placeholder="Almacen" min="1">
+    </form>
+    <br>
+    <button class="loginbutton" onclick="aggEditProducto()"><b>Enviar</b></button>
+    <button class="loginbutton" onclick="limpiarCamposAlmacenes()"><b>Limpiar Campos</b></button>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inventario</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tablas.css">
+  <script src="js/script.js"></script>
+</head>
+<body class="main" onload="recibirTabla()">
+
+<div>
+  <div class="columns">
+    <div class="navbar">
+      <a class="navbar" onclick="goBack()"> Inicio </a>
+      <a class="navbar" onclick="cargarProductosV()"> Productos </a>
+      <a class="navbar" onclick="cargarAlmacenesV()"> Almacenes </a>
+      <a class="navbar" onclick="cerrarSesion()">Cerrar sesión</a>
+    </div>
+  </div>
+  <div class="columns" id="contEscudo">
+    <div class="container">
+      <img src="./img/escudounison.png" class="escudo">
+    </div>
+  </div>
+  <div class="container" id="textoTablas">
+    <div class="columns">
+      <div class="container">
+        <h3 style="font-size: 30px;">Sistema de Inventario</h3>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="container">
+        <p style="font-size: 18px;">Santoscoy Santillan Noe Sebastian</p>
+      </div>
+    </div>
+  </div>
+  <div class="columns" id="botonesTablas">
+    <div class="container" style="width: fit-content;">
+      <button class="mainBotones" onclick="cargarAlmacenesV()"><b>Almacenes</b></button>
+      <button class="mainBotones" onclick="cargarProductosV()"><b>Productos</b></button>
+    </div>
+  </div>
+  <div class="columns">
+    <br><br>
+    <div class="container">
+      <div class="tbl-container">
+        <button id="regresarTablas" onclick="goBack()">&#8678;</button>
+        <tr rowspan="9">
+          <button id="filtros" onclick="abrirModal()">Filtros &#128269;</button>
+        </tr>
+        <table id="tablaProductos" class="bd">
+          <thead>
+          <tr>
+            <th onclick="cargarProductos('p', 'id','DESC', this)" id="id">ID</th>
+            <th onclick="cargarProductos('p', 'nombre','ASC', this)" id="nombre">Nombre</th>
+            <th onclick="cargarProductos('p', 'precio','ASC', this)" id="precio">Precio</th>
+            <th onclick="cargarProductos('p', 'cantidad','ASC', this)" id="cantidad">Cantidad</th>
+            <th onclick="cargarProductos('p', 'departamento','ASC', this)" id="departamento">Departamento</th>
+            <th onclick="cargarProductos('a', 'nombre','ASC', this)" id="nombrealmacen">Almacen</th>
+            <th onclick="cargarProductos('p', 'lastmoddate','DESC', this)" id="lastmoddate">Modificado en</th>
+            <th onclick="cargarProductos('p', 'lastmoduser','ASC', this)" id="lastmoduser">Modificado por</th>
+            <th onclick="cargarProductos('p', 'creationdate','DESC', this)" id="creationdate">Creado en</th>
+          </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+
+        <table id="tablaAlmacenes" class="bd">
+          <thead>
+          <tr>
+            <th onclick="cargarAlmacenes('id','DESC', this)" id="a.id">ID</th>
+            <th onclick="cargarAlmacenes('nombre','ASC', this)" id="a.nombre">Nombre</th>
+            <th onclick="cargarAlmacenes('lastmoddate','ASC', this)" id="a.lastmoddate">Modificado en</th>
+            <th onclick="cargarAlmacenes('lastmoduser','ASC', this)" id="a.lastmoduser">Modificado por</th>
+            <th onclick="cargarAlmacenes('creationdate','ASC', this)" id="a.creationdate">Creado en</th>
+          </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <br>
+    <div class="columns" id="botonesCRUD">
+      <div class="container">
+        <div class="columns">
+          <button id="delete" onclick="eliminar()">Eliminar</button>
+          <button id="add" onclick="botonEditar()">Agregar/Editar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="modalFiltros" class="modal-overlay">
+  <div class="modal-container">
+    <button class="modal-close" onclick="cerrarModal()">&times;</button>
+    <div id="buscarProductos">
+      <form class="" id="formProductos">
+        <h1>Filtrar Producto</h1>
+        <table>
+          <tbody>
+          <tr>
+            <td><p>ID del Producto</p></td>
+            <td><input type="number" id="modID" placeholder="ID" min="1"></td>
+          </tr>
+          <tr>
+            <td><p>Nombre</p></td>
+            <td><input type="text" id="modNombre" placeholder="Nombre del Producto">
+            </td>
+          </tr>
+          <tr>
+            <td><p>Precio Mínimo</p></td>
+            <td><input type="number" id="modPrecioMin" placeholder="Precio" min="1" step="0.01"></td>
+          </tr>
+          <tr>
+            <td><p>Precio Máximo</p></td>
+            <td><input type="number" id="modPrecioMax" placeholder="Precio" min="1" step="0.01"></td>
+          </tr>
+          <tr>
+            <td><p>Cantidad Mínima</p></td>
+            <td><input type="number" id="modCantidadMin" placeholder="Cantidad"></td>
+          </tr>
+          <tr>
+            <td><p>Cantidad Máxima</p></td>
+            <td><input type="number" id="modCantidadMax" placeholder="Cantidad"></td>
+          </tr>
+          <tr>
+            <td><p>Departamento</p></td>
+            <td><input type="text" id="modDepartamento" placeholder="Departamento">
+            </td>
+          </tr>
+          <tr>
+            <td><p>Almacen (ID)</p></td>
+            <td><input type="number" id="modAlmacen" placeholder="Almacen" min="1"></td>
+          </tr>
+          <tr>
+            <td><p>Fecha de Modificacion</p></td>
+            <td><input type="date" id="modDate"></td>
+          </tr>
+          <tr>
+            <td><p>Ultimo usuario que modifico</p></td>
+            <td><input type="text" id="modUser" placeholder="Usuario"></td>
+          </tr>
+          <tr>
+            <td><p>Fecha de creacion</p></td>
+            <td><input type="date" id="modCreation"></td>
+          </tr>
+          </tbody>
+        </table>
+      </form>
+      <button class="filtrar" onclick="cargarProductosF()"><b>Filtrar</b></button>
+      <button class="limpiarfiltros" onclick="limpiarFiltros()"><b>Limpiar Campos</b></button>
+    </div>
+
+    <div id="buscarAlmacenes">
+      <form class="" id="formAlmacenes">
+        <h1>Filtrar almacenes</h1>
+        <table>
+          <tbody>
+          <tr>
+            <td><p>ID del Almacen</p></td>
+            <td><input type="number" id="modIDa" class="login" placeholder="ID" min="1"></td>
+          </tr>
+          <tr>
+            <td><p>Nombre</p></td>
+            <td><input type="text" id="modNombreA" class="login" placeholder="Nombre del Almacen"></td>
+          </tr>
+          <tr>
+            <td><p>Fecha de Ultima Modificacion</p></td>
+            <td><input type="date" id="modDateA" class="login"></td>
+          </tr>
+          <tr>
+            <td><p>Ultimo Usuario que Modifico</p></td>
+            <td><input type="text" id="modUserA" class="login" placeholder="Usuario"></td>
+          </tr>
+          <tr>
+            <td><p>Fecha de creacion</p></td>
+            <td><input type="date" id="modCreationA" class="login"></td>
+          </tr>
+          </tbody>
+        </table>
+      </form>
+      <button class="filtrar" onclick="cargarAlmacenesF()"><b>Filtrar</b></button>
+      <button class="limpiarfiltros" onclick="limpiarFiltros()"><b>Limpiar Campos</b></button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

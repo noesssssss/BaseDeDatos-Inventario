@@ -1,0 +1,102 @@
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  display: flex;
+  background-color: rgb(245, 248, 250);
+  overflow: hidden;
+  font-family: "Segoe UI", serif;
+  align-items: center;
+  justify-content: center;
+  height: 97svh;
+}
+
+body.main{
+  display: flex;
+  background-color: rgb(245, 248, 250);
+
+  font-family: "Segoe UI", serif;
+  align-items: center;
+  height: max-content;
+  min-height: 100%;
+}
+
+
+
+
+input.add{
+}
+
+
+
+img{
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.14));
+}
+
+
+
+.add{
+  padding:0;
+  margin:0;
+}
+
+.vertical{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  gap: 3rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+
+  gap: 3rem;
+  max-width: 800px;
+}
+
+.columns{
+  flex: 1;
+  align-content: center;
+  justify-content: center;
+}
+
+#regresarTablas{
+  display: none;
+
+  left: 10px;
+  position:absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #00529e;
+  font-size: 20px;
+}
+
+#regresarTablas:hover{
+  background-color: whitesmoke;
+  color: #00529e;
+  transition: 0.3s;
+}
+
+
+
+
+
+/*Probar para mover elementos de acuerdo a su tamaño*/
+/*{
+
+  border: 1px red solid;
+}*/
+
