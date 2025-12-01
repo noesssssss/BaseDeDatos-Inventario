@@ -115,7 +115,7 @@ function setupIpcListeners() {
    * =========== Funciones de usuarios ===========
    */
   //Funcion de agregar usuario: Obtiene nombre, contraseña y fecha, encripta la contraseña y loa inserta en la base de datos
-  ipcMain.on('agregar-usuario', async (event, usuario) => {
+  /*ipcMain.on('agregar-usuario', async (event, usuario) => {
     console.log("Datos recibidos:", usuario);
 
     try {
@@ -137,7 +137,7 @@ function setupIpcListeners() {
     } catch (error) {
       console.error("Error en agregar-usuario:", error);
     }
-  });
+  });*/
 
   //Funcion para verificar el inicio de sesion
   ipcMain.on('login', (event, datos) => {

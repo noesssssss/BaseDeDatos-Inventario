@@ -362,6 +362,19 @@ async function eliminar() {
     return;
   }
 
+  if (elementoSelec[1] === 'tablaProductos') {
+    if(this.rol === 'almacen') {
+      await errorRol();
+      return;
+    }
+  }
+  if (elementoSelec[1] === 'tablaAlmacenes') {
+    if(this.rol === 'productos') {
+      await errorRol();
+      return;
+    }
+  }
+
   if(elementoSelec != null && await confirmarAccion('eliminar') == true) {
     console.log('Confirmo accion')
     if (elementoSelec[1] === 'tablaProductos') {
