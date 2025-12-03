@@ -35,7 +35,7 @@ Si el usuario decide cerrar la sesión, los valores correspondientes al rol guar
 <img src="https://github.com/noesssssss/BaseDeDatos-Inventario/blob/master/imgs_readme_bd/principal.png">
 - Tablas
 Al dar click en los botones de cualquiera de las dos tablas, se mostrarán todos los registros existentes en ellas. Se mostrarán también cuatro botones nuevos: Volver (la flecha, regresará a la pantalla principal), Editar/Agregar (manda al usuario a un formulario con todos los campos para editar o agregar un producto), Eliminar (mostrará un diálogo de confirmación antes de modificar el registro), y Filtros (donde el usuario puede buscar por cualquier campo que desee). Ambas puede ser vistas por todos los usuarios.
-<img src="https://github.com/noesssssss/BaseDeDatos-Inventario/blob/master/imgs_readme_bd/almacenes">
+<img src="https://github.com/noesssssss/BaseDeDatos-Inventario/blob/master/imgs_readme_bd/almacenes.png">
 <img src="https://github.com/noesssssss/BaseDeDatos-Inventario/blob/master/imgs_readme_bd/productos.png">
 - Filtros y ordenamiento
 En esta sección el usuario ingresa los datos por los que quiere buscar algún almacén o producto en específico. Los filtros se pueden acumular. Si el usuario desea eliminar los filtros puede dar click a “limpiar campos” y posteriormente a “filtrar” nuevamente para obtener todos los datos otra vez.
